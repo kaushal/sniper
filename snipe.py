@@ -12,13 +12,13 @@ def sendMessage(count):
     auth_token = "e597e20b27bdc19f0348ddfa46351caf"
     client = TwilioRestClient(acount_sid, auth_token)
 
-    req = urllib2.Request("https://sis.rutgers.edu/soc/courses.json?subject=830&semester=12013&campus=NB&level=U")
+    req = urllib2.Request("https://sis.rutgers.edu/soc/courses.json?subject=198&semester=12013&campus=NB&level=U")
     opener = urllib2.build_opener()
     f = opener.open(req)
     dict = json.loads(f.read())
-    print dict[0]['sections'][1]['openStatus']
-    print dict[0]['sections'][1]['index']
-    if dict[0]['sections'][1]['openStatus']:
+    print dict[7]['sections'][1]['openStatus']
+    print dict[7]['sections'][1]['index']
+    if dict[7]['sections'][1]['openStatus']:
         client.sms.messages.create(body="Course just opened up!", to="+19084202938", from_="+17324973029")
         return count + 1
     elif count > 360:
