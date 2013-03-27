@@ -30,4 +30,3 @@ while True:
     count = sendMessage(count)
     print count
     sleep(10)    
-
